@@ -30,7 +30,7 @@ const OnlineUserData = () => {
     const [currUser, setCurrUser] = React.useState(undefined);
 
     const handleClickOpen = () => {
-        // setCurrMovie(undefined);
+        setCurrUser(undefined);
         setOpen(true);
     };
 

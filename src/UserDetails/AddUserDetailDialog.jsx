@@ -23,7 +23,7 @@ export default function AddUserDetailDialog(
                     data[element.name] = element.value;
                 }
             }
-            // return data;
+            return data;
         });
 
         console.log(data);
