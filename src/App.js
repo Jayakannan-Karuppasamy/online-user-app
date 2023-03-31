@@ -1,24 +1,50 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import OnlineUserData from './UserDetails/OnlineUserData';
+// import DataTable from './UserDetails/UserDetailTable';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+// import Example from './UserDetails/Example';
+
+const customTheme = createTheme({
+  palette: {
+    primary: {
+      main: '#448aff',
+    },
+    secondary: {
+      main: '#448881',
+    }
+  },
+  components: {
+    // Name of the component
+    MuiButtonBase: {
+      defaultProps: {
+        // The props to change the default for.
+        disableRipple: true, // No more ripple, on the whole application 💣!
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          // Some CSS
+          fontSize: '1rem',
+          borderRadius: 4
+        },
+      },
+    },
+  },
+});
 
 function App() {
   return (
+    // <DataTable></DataTable>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ThemeProvider theme={customTheme} >
+        <OnlineUserData></OnlineUserData>
+        {/* <Example></Example> */}
+      </ThemeProvider>
     </div>
+
   );
 }
 
